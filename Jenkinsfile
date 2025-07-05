@@ -23,7 +23,7 @@ pipeline {
 
         stage('Run Docker Container') {
             steps {
-                bat "docker run -d --name %CONTAINER_NAME% -p 8080:80 %IMAGE_NAME%"
+               bat "docker run -d --name %CONTAINER_NAME% -p 8090:80 %IMAGE_NAME%"
             }
         }
 
@@ -43,10 +43,11 @@ pipeline {
 
         stage('Run Tests') {
             steps {
-                bat """
-                timeout /t 5
-                curl http://localhost:8080 || exit 1
-                """
+               bat """
+timeout /t 5
+curl http://localhost:8090 || exit 1
+"""
+
             }
         }
 
