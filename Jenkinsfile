@@ -1,7 +1,5 @@
 pipeline {
-    agent {
-        label 'windows'  // Update if your Jenkins Windows agent uses a different label
-    }
+    agent any
 
     environment {
         IMAGE_NAME = 'atulkaithal0422/nginx-custom'
